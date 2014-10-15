@@ -1,0 +1,63 @@
+extends layout
+
+block content
+	.padding20px
+	.container-fluid
+		.jumbotron
+			h1 Got Games?
+			p
+				| Drowning in your backlog?  Can't remember if you've already got something?  Want to know how much your collection is worth?  VGTrackr has you covered.
+			p
+				a.btn.btn-primary.btn-lg(href='/collection', role='button') Manage Your Collection
+	.container-fluid
+		.row
+			.col-sm-6.col-md-4
+				.thumbnail
+					img(src='img/collection1.jpg', alt='...')
+					.caption
+						h3 Keep track of your games
+						p
+							| Easily add new and classic games to your collection and look up any game in your collection in seconds.
+						p
+						a.btn.btn-default(href='/browse', role='button') Add Games
+			.col-sm-6.col-md-4
+				.thumbnail
+					img(src='img/perlerbeads.jpg', alt='...')
+					.caption
+						h3 What's it worth?
+						p
+							| Get accurate and up to date pricing for your collection based on Amazon, Ebay, and Gamestop pricing from Pricecharting.com.
+						p
+						a.btn.btn-default(href='/stats', role='button') See my collection's statistics
+			.col-sm-6.col-md-4
+				.thumbnail
+					img(src='img/nesgames.png', alt='...')
+					.caption
+						h3 We're getting better all the time!
+						p Learn about upcoming improvements and new features we're working on.
+						p
+						a.btn.btn-default(href='/newstuff', role='button') See Upcoming Features
+	//
+		Easter Egg! 
+	.container
+		#easteregg.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+			.modal-dialog
+				.modal-content
+					.modal-header
+						button.close(type='button', data-dismiss='modal')
+						span(aria-hidden='true') ×
+						span.sr-only Close
+						h4#myModalLabel.modal-title w00t!  You remembered the Konami Code!
+					.modal-body
+						p.modaltext Yay for you!  Please enjoy this fabulous video.
+						iframe(width='420', height='315', src='http://www.youtube.com/embed/9W-VGUOiVDc?rel=0&enablejsapi=1', frameborder='0', allowfullscreen='allowfullscreen')
+						p.modaltext
+							| Seriously though, Don Hertzfeldt is mega awesome and you should definitely watch more of his stuff.
+					.modal-footer
+						button.btn.btn-default(type='button', data-dismiss='modal') Close
+
+	script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+	script(src='bootstrap/js/bootstrap.min.js')
+	script(src='lib/sweet-alert.min.js')
+	script(src='lib/konami.js')
+	script(src='main.js')
