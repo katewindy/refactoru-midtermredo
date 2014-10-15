@@ -3,13 +3,13 @@ $(document).on('ready', function() {
   	var tableData = JSON.parse(localStorage.getItem('myCollection'));
   	// check to see if collection array is empty; if so, then append one row stating there are no games in the collection
   	if (tableData===null){
-  		var newrow = '<tr><td>No Games To Display</td><td class="consolename">None</td><td class=genre>None</td><td class="loose">$0.00</td><td class="cib">$0.00</td></tr>';
+  		var newrow = '<tr><td>No Games To Display</td><td class="consolename">None</td><td class=genre>None</td><td class="loose">$0.00</td><td class="cib">$0.00</td><td class="collActions">No Actions</td></tr>';
   		$('.tablebody').append(newrow);
   	}
   	else {
   	// inject html into the dom to create the table rows
-	createBrowseTableRows(tableData);
-	};	
+	createCollectionTableRows(tableData);
+	}	
 	// set up the table in the DOM using the DataTables plugin
 	$('#datatable').DataTable({
 		"pageLength":20,
@@ -55,7 +55,7 @@ $(document).on('ready', function() {
 					// save the resulting array in local storage
 					localStorage.setItem('myCollection', JSON.stringify(myCollection));
 				}
-			};
+			}
 		});
 			
 		
@@ -63,5 +63,23 @@ $(document).on('ready', function() {
 	});
 });
 
+function createCollectionTableRows (dataArray) {
+	var tableData = dataArray;
+	for (var i = 0; i < dataArray.length; i++){
+		var currentRow = dataArray[i];
+		var id = i;
+		var gameName = currentRow.productname;
+		var consoleName = currentRow.consolename;
+		var genre = currentRow.genre;
+		var numloose = Number(currentRow.looseprice);
+		var loose = numloose.toFixed(2);
+		var numcib = Number(currentRow.cibprice);
+		var cib = numcib.toFixed(2);
+
+		var newrow = '<tr><td><a href=# class="gametitle" id="' + i + '">'+gameName+'</a></td><td class="consolename">'+consoleName+'</td><td class=genre>'+genre+'</td><td class="loose">$'+loose+'</td><td class="cib">$'+cib+'</td><td><i class="fa fa-trash"></i>&nbsp;&nbsp;<i class="fa fa-rocket"></i></td></tr>';
+
+		$('.tablebody').append(newrow);
+	}
+}
 
 
