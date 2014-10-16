@@ -4,7 +4,7 @@ $(document).on('ready', function() {
 	//  run the data stored in data.js and make it into one huge array
   	var tableData = dataPrettier();
  	// inject table rows into the DOM
-	createBrowseTableRows(tableData);
+	// createBrowseTableRows(tableData);
 	// create nice table using DataTables plugin
 	$('#datatable').DataTable({
 		"pageLength":20,
@@ -12,13 +12,17 @@ $(document).on('ready', function() {
 	});
 	
 	// add all data from the selected row to a Game object and save it to the user's collection in localStorage when the title of the game is clicked in the table
-	$(document).on('click', '.gametitle', function(){
+	$(document).on('click', '.toCollection', function(){
 		// create the collection array within this function
 		var myCollection = createCollectionArray();
 		// create a blank new GameObject
 		var newCollectionItem = new GameObject();
 		// grab the game/item name from the DOM element
-		newCollectionItem.productname = $(this).text();
+		newCollectionItem.productname = $(this)
+			.closest('td')
+			.children('.gametitle')
+			.text();
+		console.log(newCollectionItem.productname);
 		// grab the console the game/item is for from the DOM element
 		newCollectionItem.consolename = $(this)
 			.closest('td')

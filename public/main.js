@@ -39,7 +39,7 @@ function createBrowseTableRows (dataArray) {
 		var numcib = Number(currentRow.cibprice);
 		var cib = numcib.toFixed(2);
 
-		var newrow = '<tr><td><a href=# class="gametitle" id="' + i + '">'+gameName+'</a></td><td class="consolename">'+consoleName+'</td><td class=genre>'+genre+'</td><td class="loose">$'+loose+'</td><td class="cib">$'+cib+'</td></tr>';
+		var newrow = '<tr><td><a href="#"" class="gametitle" id="' + i + '">'+gameName+'</a></td><td class="consolename">'+consoleName+'</td><td class=genre>'+genre+'</td><td class="loose">$'+loose+'</td><td class="cib">$'+cib+'</td><td class="actions"><a href="#"" class="toCollection" id="' + i + '"><i class="fa fa-plus-circle"></i></a>&nbsp;&nbsp;<a href="#" class="toWants"><i class="fa fa-magic"></i></a></td></tr>';
 
 		$('.tablebody').append(newrow);
 	}
