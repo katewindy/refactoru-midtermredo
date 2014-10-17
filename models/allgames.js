@@ -4,7 +4,7 @@ var AllGames = function(){
 	this.games = [];
 };
 
-AllGames.prototype.addGames = function(consolename, productname, looseprice, cibprice, genre){
+AllGames.prototype.addGame = function(consolename, productname, looseprice, cibprice, genre){
 	var newGame = new Game(consolename, productname, looseprice, cibprice, genre);
 	this.games.push(newGame);
 };

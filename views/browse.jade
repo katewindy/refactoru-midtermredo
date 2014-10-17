@@ -27,8 +27,14 @@ block content
 						th CIB Price
 						th Actions
 				tbody.tablebody
-					for game in tabledata
-						
+					for game in fullGameList.games
+						tr
+							td: a(href="/view/#{game.consolename}#{game.productname}")= game.productname
+							td #{game.consolename}
+							td #{game.genre}
+							td #{game.looseprice}
+							td #{game.cibprice}
+							td iconholder
 
 	.padding20px
 	//

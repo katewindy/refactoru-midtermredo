@@ -52758,4 +52758,4 @@ var gameData = [
                         "Simulation"
                     ]    
                 ];
-            
+module.exports = gameData;            
