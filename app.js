@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var indexController = require('./controllers/index.js');
+var browseController = require('./controllers/browse.js');
 
 var app = express();
 app.set('view engine', 'jade');
@@ -9,7 +10,8 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/', indexController.index);
-app.get('/browse', indexController.browse);
+app.get('/browse', browseController.browse);
+app.get('/views/:gameid', browseController.viewGame);
 app.get('/collection', indexController.collection);
 app.get('/stats', indexController.stats);
 app.get('/wtfmachine', indexController.wtfmachine);

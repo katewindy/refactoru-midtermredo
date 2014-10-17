@@ -29,12 +29,17 @@ block content
 				tbody.tablebody
 					for game in fullGameList.games
 						tr
-							td: a(href="/view/#{game.consolename}#{game.productname}")= game.productname
+							td: a(href="/views/#{game.id}")= game.productname
 							td #{game.consolename}
 							td #{game.genre}
 							td #{game.looseprice}
 							td #{game.cibprice}
-							td iconholder
+							td
+								a(href="#" class="toCollect #{game.id}")
+									i.fa.fa-plus-circle
+									&nbsp;&nbsp;
+								a(href="#" class="toWish #{game.id}")
+									i.fa.fa-magic
 
 	.padding20px
 	//
