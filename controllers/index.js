@@ -2,9 +2,6 @@ var indexController = {
 	index: function(req, res) {
 		res.render('index');
 	},
-	browse: function(req, res) {
-		res.render('browse');
-	},
 	collection: function(req, res) {
 		res.render('collection');
 	},
